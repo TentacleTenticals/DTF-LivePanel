@@ -182,7 +182,8 @@ class Panel{
                         cName: 'link',
                         text: '⤴',
                         onclick: () => {
-                          window.open(e.content.url, '_blank');
+                          window.location.assign(e.content.url);
+                          // window.open(e.content.url, '_blank');
                         }
                       })
                     }
