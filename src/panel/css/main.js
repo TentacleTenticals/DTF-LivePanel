@@ -23,6 +23,7 @@ const panelCss = (o) => {
   display: flex;
   flex-direction: column;
   gap: 5px 0;
+  width: ${o.panelWith}px;
   background-color: rgb(0,0,0);
 }
 
@@ -159,6 +160,7 @@ const panelCss = (o) => {
   .title {
     font-size: 12px;
     font-family: 'Exo 2', sans-serif;
+    line-height: normal;
     color: rgb(199 199 199);
   
     &:hover {
@@ -218,6 +220,7 @@ const panelCss = (o) => {
   font-weight: 400;
   font-family: 'Manrope', sans-serif;
   font-family: 'Noto Sans JP', sans-serif;
+  line-height: normal;
 }
 
 
