@@ -158,7 +158,7 @@ const panelCss = (o) => {
   }
 
   .title {
-    font-size: 12px;
+    font-size: ${o.titleSize}px;
     font-family: 'Exo 2', sans-serif;
     line-height: normal;
     color: rgb(199 199 199);
@@ -216,7 +216,7 @@ const panelCss = (o) => {
 
 .comment>.text {
   color: rgb(255,255,255);
-  font-size: 14px;
+  font-size: ${o.textSize}px;
   font-weight: 400;
   font-family: 'Manrope', sans-serif;
   font-family: 'Noto Sans JP', sans-serif;
