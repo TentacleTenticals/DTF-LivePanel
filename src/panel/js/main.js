@@ -159,7 +159,7 @@ class Panel{
             path: c,
             cName: 'lcHeader',
             func: (header) => {
-              if(o.showAvatars) this.getAttach({type:'header', url:e.user.avatar, path:header});
+              if(o.showAvatars) this.getAttach({type:'lcHeader', url:e.user.avatar, path:header});
               new El().Div({
                 path: header,
                 cName: 'info',
