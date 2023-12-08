@@ -181,8 +181,8 @@ class Panel{
                         path: nd,
                         cName: 'link',
                         text: '⤴',
-                        onclick: (e) => {
-                          e.preventDefault();
+                        onclick: (el) => {
+                          el.preventDefault();
                           window.location.assign(e.content.url);
                           // window.open(e.content.url, '_blank');
                         }
