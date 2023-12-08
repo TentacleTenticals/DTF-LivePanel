@@ -209,7 +209,7 @@ const panelCss = (o) => {
   
   >.mask.attachment {
     display: flex;
-    width: 25%;
+    width: ${o.attachmentSize}%;
     aspect-ratio: 1/1;
     padding: 4px;
     overflow: hidden;
