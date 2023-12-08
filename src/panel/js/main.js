@@ -184,9 +184,9 @@ class Panel{
                         cName: 'link',
                         text: '⤴',
                         onclick: (el) => {
-                          el.preventDefault();
-                          window.location.assign(e.content.url);
-                          // window.open(e.content.url, '_blank');
+                          // el.preventDefault();
+                          // window.location.assign(e.content.url);
+                          window.open(e.content.url, '_blank');
                         }
                       })
                     }
@@ -217,7 +217,7 @@ class Panel{
           });
           if(o.showAttachments && e.media.length > 0){
             e.media.forEach(media => {
-              console.log('MEDIA', media);
+              // console.log('MEDIA', media);
               if(media.data) this.getAttach({type:'attachment', data:media.data, path:c});
             })
           }
@@ -251,46 +251,39 @@ class Panel{
         if(this.matchedItemIndex > 0) return this.newList = this.list2.slice(this.matchedItemIndex+1, this.list2.length);
         else
         return this.newList = this.list2;
-      },
-      // get willDelete(){
-      //   return this.list1.slice(this.willCut - this.maxSize);
-      // }
+      }
     }
-    // console.log('[UpdateList]', i);
-    // const result = new DocumentFragment();
-    // const trash = new DocumentFragment();
-    // console.log(list1[i.lastItemIndex]);
 
-    console.log('Founded same', i.matchedItemIndex);
+    // console.log('Founded same', i.matchedItemIndex);
 
     // console.log('S', i.list2);
 
     if(i.list1.length > i.maxSize || i.list1.length + i.newList.length > i.maxSize){
       i.willCut = i.list1.length+i.newList.length - i.maxSize;
-      console.log('Will cut', i.willCut);
+      // console.log('Will cut', i.willCut);
     }
 
     if(i.willCut > 0){
-      console.log('[Cutting]');
+      // console.log('[Cutting]');
       if(i.willCut === i.maxSize){
-        console.log(`[Cutting] Will cut all. List:${i.list.children.length}, will be added:${i.newList.length}`);
+        // console.log(`[Cutting] Will cut all. List:${i.list.children.length}, will be added:${i.newList.length}`);
         i.list.replaceChildren();
 
-        console.log(`[Cutting] cutted all. Will be added:${i.newList.length}`);
+        // console.log(`[Cutting] cutted all. Will be added:${i.newList.length}`);
 
         const result = new DocumentFragment();
         this.createComments({list:i.newList, path:result, ...cfg});
         i.list.append(result);
-        console.log('[Cutting] Cutted!');
+        // console.log('[Cutting] Cutted!');
       }else{
-        console.log('[Cutting] Will cut part', i.list1.length);
-        // const trash = new DocumentFragment();
+        // console.log('[Cutting] Will cut part', i.list1.length);
+        const trash = new DocumentFragment();
         for(let el = 0, arr = i.list.children, len = i.willCut; el < len; el++){
-          console.log('Cut');
-          // trash.appendChild(arr[el]);
-          arr[el].remove();
+          // console.log('Cut');
+          trash.appendChild(arr[el]);
+          // arr[el].remove();
         }
-        // trash.replaceChildren();
+        trash.replaceChildren();
         // console.log('Trash', trash);
         // i.list.append(trash);
         const result = new DocumentFragment();
@@ -302,15 +295,8 @@ class Panel{
       this.createComments({list:i.newList, path:result, ...cfg});
       i.list.append(result);
     }
-
-    // i.list.replaceChildren(result);
-    // this.pushComments({list:comments, path:result});
-
-    // console.log('R', i.willDelete.concat(i.newList));
   }
   getAttach(o){
-    // if(!o.url||!o.url && !o.data) return;
-    // console.log('[TYPE]', o.type)
     new El().Div({
       path: o.path,
       cName: `mask ${o.type}`,
