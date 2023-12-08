@@ -58,12 +58,14 @@ const panelCss = (o) => {
     padding: 0;
     margin: 0;
     font-size: 11px;
+    line-height: normal;
     border: unset;
-    /* border: 1px solid rgb(103 98 98); */
     border-radius: 50%;
     background-color: rgb(48 21 69);
     color: rgb(255 255 255);
     box-shadow: 0 0 1px 2px rgb(103 98 98);
+    padding-inline: 3px;
+    padding-block: 3px;
 
     &:hover {
       filter: hue-rotate(45deg);
