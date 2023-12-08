@@ -230,7 +230,7 @@ const panelCss = (o) => {
   border-radius: 50%;
   box-shadow: 0 0 3px 1px rgb(123 123 123);
 }
-.comment>.header .mask img {
+.comment>.header .mask :is(img, video) {
   margin: auto;
   max-width: 100%;
   max-height: 100%;
