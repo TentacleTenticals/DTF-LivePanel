@@ -12,11 +12,18 @@ class Panel{
           func: (header) => {
             new El().Div({
               path: header,
-              cName: 'title',
-              text: 'DTF Live',
-              func: (title) => {
+              cName: 'btnPanel',
+              func: (btnPanel) => {
+                new El().Div({
+                  path: btnPanel,
+                  cName: 'title',
+                  text: 'DTF Live',
+                  onclick: () => {
+                    main.classList.toggle('hidden');
+                  }
+                });
                 new El().Button({
-                  path: title,
+                  path: btnPanel,
                   cName: 'btn rec',
                   onclick: (e) => {
                     // header.classList.toggle('live');
@@ -24,16 +31,13 @@ class Panel{
                   }
                 });
                 new El().Button({
-                  path: title,
+                  path: btnPanel,
                   cName: 'btn update',
                   text: '🔄\uFE0E',
                   onclick: (e) => {
                     this.updateComments(o);
                   }
                 });
-              },
-              onclick: () => {
-                main.classList.toggle('hidden');
               }
             });
             new El().Div({
