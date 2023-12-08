@@ -134,7 +134,7 @@ const panelCss = (o) => {
     display: flex;
     flex-direction: column;
     gap: 2px 5px;
-    max-width: calc(100% - ${o.avatarSize}px);
+    max-width: calc(100% - ${o.avatarSize+5}px);
   }
 
   .name-data {
@@ -210,8 +210,8 @@ const panelCss = (o) => {
   display: flex;
   min-width: 0;
   min-height: 0;
-  width: 30px;
-  height: 30px;
+  width: ${o.avatarSize}px;
+  height: ${o.avatarSize}px;
   overflow: hidden;
   border-radius: 50%;
   box-shadow: 0 0 3px 1px rgb(123 123 123);
