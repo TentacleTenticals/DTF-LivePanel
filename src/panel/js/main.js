@@ -3,7 +3,6 @@ class Panel{
     new El().Div({
       path: o.mPath,
       cName: 'dtf-live',
-      style: `height:${window.screen.availHeight}px;`,
       func: (main) => {
 
         new El().Div({
