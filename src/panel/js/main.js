@@ -173,8 +173,10 @@ class Panel{
                         cName: 'name',
                         text: e.user.name,
                         onclick: () => {
-                          // window.location.assign(href);
-                          window.open(e.author.url, '_blank');
+                          if(o.openInNewTab){
+                            window.open(e.author.url, '_blank');
+                          }else
+                          window.location.assign(e.author.url);
                         }
                       });
                       new El().Div({
@@ -187,9 +189,12 @@ class Panel{
                         cName: 'link',
                         text: '⤴',
                         onclick: (el) => {
+                          if(o.openInNewTab){
+                            window.open(e.url, '_blank');
+                          }else
+                          window.location.assign(e.content.url);
                           // el.preventDefault();
                           // window.location.assign(e.content.url);
-                          window.open(e.content.url, '_blank');
                         }
                       })
                     }
@@ -204,7 +209,10 @@ class Panel{
                         text: e.content.title.slice(0, o.maxTitle),
                         title: e.content.title,
                         onclick: () => {
-                          window.open(e.content.url, '_blank');
+                          if(o.openInNewTab){
+                            window.open(e.content.url, '_blank');
+                          }else
+                          window.location.assign(e.content.url);
                         }
                       });
                     }
