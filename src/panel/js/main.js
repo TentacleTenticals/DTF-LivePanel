@@ -59,7 +59,7 @@ class Panel{
         new El().Div({
           path: main,
           id: 'dtf-liveList',
-          cName: 'list scrollMid',
+          cName: 'list scrbar',
           func: (list) => {
             this.setComments(list, o);
             if(o.autoUpdate) this.setAutoupdate({run:true, el:list.previousElementSibling, ...o});
