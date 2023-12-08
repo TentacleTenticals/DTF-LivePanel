@@ -25,9 +25,13 @@ const panelCss = (o) => {
   gap: 5px 0;
   position: sticky;
   top: 60px;
-  width: ${o.panelWidth}%;
+  width: ${o.panelWidth}px;
   height: calc(100vh - 60px);
   background-color: rgb(0,0,0);
+
+  .dtf-live.hidden {
+    margin-right: -calc(${o.panelWidth}px - 40px);
+  }
 }
 
 .list {
@@ -130,6 +134,7 @@ const panelCss = (o) => {
     display: flex;
     flex-direction: column;
     gap: 2px 5px;
+    max-width: calc(100% - ${o.avatarSize}px);
   }
 
   .name-data {
