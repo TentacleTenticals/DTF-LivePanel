@@ -18,12 +18,12 @@
 // ==/UserScript==
 
 (() => {
-  // let livePanel = true;
+  let livePanel = true;
 
   // new El().Css('DTF-SuperFeeds', css(cfg));
 
   function run(status){
-    {
+    if(livePanel){
       console.log('[DTF LivePanel] Замена панели...');
       const vanilDtf = document.querySelector(`body>.main.layout>.layout__right-column`);
       const redesignDtf = document.querySelector(`#app>.layout>.aside--right>.live`);
@@ -53,7 +53,7 @@
           maxText: 150,
           maxTitle: 80
         });
-        // livePanel = false;
+        livePanel = false;
       }else
       if(redesignDtf){
         console.log('[DTF LivePanel] Redesign mode');
@@ -81,7 +81,7 @@
           maxText: 150,
           maxTitle: 80
         });
-        // livePanel = false;
+        livePanel = false;
       }
     }
   }
