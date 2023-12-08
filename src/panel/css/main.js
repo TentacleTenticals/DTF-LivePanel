@@ -4,19 +4,15 @@ const panelCss = (o) => {
 @import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
 
-:is(.scrollLite, .scrollMid)::-webkit-scrollbar-thumb {
+.scrbar::-webkit-scrollbar-thumb {
   background-color: rgb(189 164 164);
 }
-:is(.scrollLite, .scrollMid)::-webkit-scrollbar-corner {
+.scrbar::-webkit-scrollbar-corner {
   background-color: unset;
 }
-.scrollLite::-webkit-scrollbar {
-  width: 2px;
-  height: 2px;
-}
-.scrollMid::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
+.scrbar::-webkit-scrollbar {
+  width: ${o.scroll}px;
+  height: ${o.scroll}px;
 }
 
 .dtf-live {
