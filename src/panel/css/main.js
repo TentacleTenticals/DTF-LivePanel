@@ -23,7 +23,10 @@ const panelCss = (o) => {
   display: flex;
   flex-direction: column;
   gap: 5px 0;
+  position: sticky;
+  top: 60px;
   width: ${o.panelWidth}%;
+  height: calc(100vh - 60px);
   background-color: rgb(0,0,0);
 }
 
