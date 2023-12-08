@@ -192,7 +192,7 @@ class Panel{
                           if(o.openInNewTab){
                             window.open(e.url, '_blank');
                           }else
-                          window.location.assign(e.content.url);
+                          window.location.assign(e.url);
                           // el.preventDefault();
                           // window.location.assign(e.content.url);
                         }
