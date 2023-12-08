@@ -4,10 +4,10 @@ class Panel{
       path: o.mPath,
       cName: 'dtf-live',
       style: `height:${window.screen.availHeight}px;`,
-      func: (e) => {
+      func: (main) => {
 
         new El().Div({
-          path: e,
+          path: main,
           cName: 'header',
           func: (header) => {
             new El().Div({
@@ -33,7 +33,7 @@ class Panel{
                 });
               },
               onclick: () => {
-                e.classList.toggle('hidden');
+                main.classList.toggle('hidden');
               }
             });
             new El().Div({
@@ -54,7 +54,7 @@ class Panel{
         });
 
         new El().Div({
-          path: e,
+          path: main,
           id: 'dtf-liveList',
           cName: 'list scrollMid',
           func: (list) => {
