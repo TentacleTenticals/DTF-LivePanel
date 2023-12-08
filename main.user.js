@@ -13,7 +13,7 @@
 // Base
 // @require     https://github.com/TentacleTenticals/dtf-libs-2.0/raw/main/classes/cls.js
 //
-// @require     https://github.com/TentacleTenticals/DTF-LivePanel-2.0/raw/main/src/panel/js/main.js?
+// @require     https://github.com/TentacleTenticals/DTF-LivePanel-2.0/raw/main/src/panel/js/main.js
 // @require     https://github.com/TentacleTenticals/DTF-LivePanel-2.0/raw/main/src/panel/css/main.js
 // ==/UserScript==
 
@@ -35,6 +35,7 @@
           {
             panelWidth: 270,
             avatarSize: 30,
+            attachmentSize: 25,
             titleSize: 12,
             textSize: 12,
             scroll: 4,
@@ -62,6 +63,7 @@
           {
             panelWidth: 320,
             avatarSize: 30,
+            attachmentSize: 25,
             titleSize: 12,
             textSize: 12,
             scroll: 4,
