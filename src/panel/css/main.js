@@ -25,7 +25,7 @@ const panelCss = (o) => {
   gap: 5px 0;
   position: sticky;
   top: 60px;
-  width: ${o.panelWidth}px;
+  min-width: ${o.panelWidth}px;
   height: calc(100vh - 60px);
   background-color: rgb(0,0,0);
   z-index: 10;
@@ -202,6 +202,7 @@ const panelCss = (o) => {
   display: flex;
   flex-direction: column;
   gap: 3px 0;
+  word-break: break-word;
   
   >.mask.attachment {
     display: flex;
