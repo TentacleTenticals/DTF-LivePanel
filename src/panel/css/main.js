@@ -28,10 +28,9 @@ const panelCss = (o) => {
   width: ${o.panelWidth}px;
   height: calc(100vh - 60px);
   background-color: rgb(0,0,0);
-  z-index: 10;
 
-  .dtf-live.hidden {
-    margin-right: -calc(${o.panelWidth}px - 40px);
+  &.hidden {
+    margin-right: calc(-${o.panelWidth}px - 40px);
   }
 }
 
@@ -92,6 +91,15 @@ const panelCss = (o) => {
   }
 
   .title {
+    font-family: 'Oswald', sans-serif;
+
+    &:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+  }
+
+  .btnPanel {
     display: flex;
     flex-direction: row;
     flex-basis: 100%;
