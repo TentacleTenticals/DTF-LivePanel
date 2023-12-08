@@ -152,7 +152,7 @@ class Panel{
     o.list.forEach(e => {
       new El().Div({
         path: o.path,
-        cName: 'comment',
+        cName: 'liveComment',
         attr: ['cId', e.comment_id],
         func: (c) => {
           new El().Div({
