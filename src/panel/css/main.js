@@ -32,7 +32,7 @@ const panelCss = (o) => {
 
   &.hidden {
     position: fixed;
-    right: calc(${o.panelWidth}px + 30px);
+    right: calc(-${o.panelWidth}px + 30px);
   }
 }
 
