@@ -14,6 +14,10 @@ const panelCss = (o) => {
   width: ${o.scroll}px;
   height: ${o.scroll}px;
 }
+.scrbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(189 164 164) rgb(0, 0, 0);
+}
 
 .dtf-live {
   display: flex;
