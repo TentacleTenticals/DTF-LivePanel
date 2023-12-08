@@ -206,6 +206,7 @@ const panelCss = (o) => {
     width: 25%;
     aspect-ratio: 1/1;
     overflow: hidden;
+    background-color: rgb(0 0 0);
     box-shadow: 0 0 3px 1px rgb(123 123 123);
 
     :is(img, video) {
