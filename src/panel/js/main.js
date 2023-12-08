@@ -5,7 +5,6 @@ class Panel{
       cName: 'dtf-live',
       style: `height:${window.screen.availHeight}px;`,
       func: (e) => {
-        this.t = {};
 
         new El().Div({
           path: e,
@@ -32,6 +31,9 @@ class Panel{
                     this.updateComments(o);
                   }
                 });
+              },
+              onclick: () => {
+                e.classList.toggle('hidden');
               }
             });
             new El().Div({
