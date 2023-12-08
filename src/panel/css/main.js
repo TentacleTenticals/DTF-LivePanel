@@ -46,7 +46,7 @@ const panelCss = (o) => {
   overflow: auto;
 }
 
-.dtf-live>.header {
+.dtf-live>.mainHeader {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -137,7 +137,7 @@ const panelCss = (o) => {
   }
 }
 
-.liveComment>.header {
+.liveComment>.lcHeader {
   display: flex;
   flex-direction: row;
   gap: 2px 5px;
@@ -220,7 +220,7 @@ const panelCss = (o) => {
     }
   }
 }
-.liveComment>.header .mask {
+.liveComment>.lcHeader .mask {
   display: flex;
   min-width: 0;
   min-height: 0;
@@ -230,7 +230,7 @@ const panelCss = (o) => {
   border-radius: 50%;
   box-shadow: 0 0 3px 1px rgb(123 123 123);
 }
-.liveComment>.header .mask :is(img, video) {
+.liveComment>.lcHeader .mask :is(img, video) {
   margin: auto;
   max-width: 100%;
   max-height: 100%;
