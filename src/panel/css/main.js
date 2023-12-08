@@ -26,6 +26,7 @@ const panelCss = (o) => {
   position: sticky;
   top: 60px;
   min-width: ${o.panelWidth}px;
+  width: ${o.panelWidth}px;
   height: calc(100vh - 60px);
   background-color: rgb(0,0,0);
   z-index: 10;
