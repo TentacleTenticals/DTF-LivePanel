@@ -137,7 +137,7 @@ const panelCss = (o) => {
   }
 }
 
-.comment>.header {
+.liveComment>.header {
   display: flex;
   flex-direction: row;
   gap: 2px 5px;
@@ -199,7 +199,7 @@ const panelCss = (o) => {
     }
   }
 }
-.comment {
+.liveComment {
   display: flex;
   flex-direction: column;
   gap: 3px 0;
@@ -220,7 +220,7 @@ const panelCss = (o) => {
     }
   }
 }
-.comment>.header .mask {
+.liveComment>.header .mask {
   display: flex;
   min-width: 0;
   min-height: 0;
@@ -230,13 +230,13 @@ const panelCss = (o) => {
   border-radius: 50%;
   box-shadow: 0 0 3px 1px rgb(123 123 123);
 }
-.comment>.header .mask :is(img, video) {
+.liveComment>.header .mask :is(img, video) {
   margin: auto;
   max-width: 100%;
   max-height: 100%;
 }
 
-.comment>.text {
+.liveComment>.text {
   color: rgb(255,255,255);
   font-size: ${o.textSize}px;
   font-weight: 400;
