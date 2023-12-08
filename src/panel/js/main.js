@@ -7,7 +7,7 @@ class Panel{
 
         new El().Div({
           path: main,
-          cName: 'header',
+          cName: 'mainHeader',
           func: (header) => {
             new El().Div({
               path: header,
@@ -157,7 +157,7 @@ class Panel{
         func: (c) => {
           new El().Div({
             path: c,
-            cName: 'header',
+            cName: 'lcHeader',
             func: (header) => {
               if(o.showAvatars) this.getAttach({type:'header', url:e.user.avatar, path:header});
               new El().Div({
