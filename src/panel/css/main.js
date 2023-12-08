@@ -227,6 +227,7 @@ const panelCss = (o) => {
   min-height: 0;
   width: ${o.avatarSize}px;
   height: ${o.avatarSize}px;
+  padding: 2px;
   overflow: hidden;
   border-radius: 50%;
   box-shadow: 0 0 3px 1px rgb(123 123 123);
@@ -235,6 +236,7 @@ const panelCss = (o) => {
   margin: auto;
   max-width: 100%;
   max-height: 100%;
+  border-radius: 50%;
 }
 
 .liveComment>.text {
