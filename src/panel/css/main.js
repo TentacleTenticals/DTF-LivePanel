@@ -40,7 +40,7 @@ const panelCss = (o) => {
 .list {
   display: flex;
   flex-direction: column;
-  gap: 5px 0;
+  gap: 10px 0;
   padding: 5px;
   max-height: 100%;
   overflow: auto;
@@ -204,7 +204,7 @@ const panelCss = (o) => {
 .liveComment {
   display: flex;
   flex-direction: column;
-  gap: 3px 0;
+  gap: 0px 0;
   word-break: break-word;
   
   >.mask.attachment {
