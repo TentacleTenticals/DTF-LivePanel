@@ -307,7 +307,8 @@ class Panel{
           path: mask,
           url: o.url||`https://leonardo.osnova.io/${o.data.uuid}`,
           poster: o.url||`https://leonardo.osnova.io/${o.data.uuid}`,
-          autoplay: true
+          autoplay: true,
+          muted: true
         });
       }
     });
