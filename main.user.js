@@ -3,7 +3,7 @@
 // @namespace   https://github.com/TentacleTenticals
 // @match       https://dtf.ru/*
 // @grant       none
-// @version     1.0.1
+// @version     1.0.2
 // @author      TentacleTenticals
 // @description Новая LivePanel комментариев
 // @homepage    https://github.com/TentacleTenticals/DTF-LivePanel
@@ -54,10 +54,9 @@
           maxTitle: 80
         });
         livePanel = false;
-      }else
-      if(redesignDtf){
+      }else{
         console.log('[DTF LivePanel] Redesign mode');
-        redesignDtf.remove();
+        if(redesignDtf) redesignDtf.remove();
 
         new El().Css('DTF-livePanel', panelCss(
           {
