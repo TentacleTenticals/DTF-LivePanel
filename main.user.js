@@ -7,8 +7,8 @@
 // @author      TentacleTenticals
 // @description Новая LivePanel комментариев
 // @homepage    https://github.com/TentacleTenticals/DTF-LivePanel
-// @updateURL   https://github.com/TentacleTenticals/DTF-LivePanel/raw/master/main.user.js
-// @downloadURL https://github.com/TentacleTenticals/DTF-LivePanel/raw/master/main.user.js
+// @updateURL   https://github.com/TentacleTenticals/DTF-LivePanel/raw/main/main.user.js
+// @downloadURL https://github.com/TentacleTenticals/DTF-LivePanel/raw/main/main.user.js
 //
 // Base
 // @require     https://github.com/TentacleTenticals/dtf-libs-2.0/raw/main/classes/cls.js
