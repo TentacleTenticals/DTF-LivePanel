@@ -3,7 +3,7 @@
 // @namespace   https://github.com/TentacleTenticals
 // @match       https://dtf.ru/*
 // @grant       none
-// @version     1.0.0
+// @version     1.0.1
 // @author      TentacleTenticals
 // @description Новая LivePanel комментариев
 // @homepage    https://github.com/TentacleTenticals/DTF-LivePanel
@@ -13,8 +13,8 @@
 // Base
 // @require     https://github.com/TentacleTenticals/dtf-libs-2.0/raw/main/classes/cls.js
 //
-// @require     https://github.com/TentacleTenticals/DTF-LivePanel-2.0/raw/main/src/panel/js/main.js
-// @require     https://github.com/TentacleTenticals/DTF-LivePanel-2.0/raw/main/src/panel/css/main.js
+// @require     https://github.com/TentacleTenticals/DTF-LivePanel-2.0/raw/main/src/panel/js/main.js?
+// @require     https://github.com/TentacleTenticals/DTF-LivePanel-2.0/raw/main/src/panel/css/main.js?
 // ==/UserScript==
 
 (() => {
