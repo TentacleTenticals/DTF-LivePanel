@@ -4,7 +4,6 @@ class Panel{
       path: o.mPath,
       cName: 'dtf-live',
       func: (main) => {
-
         new El().Div({
           path: main,
           cName: 'mainHeader',
@@ -168,34 +167,24 @@ class Panel{
                     path: info,
                     cName: 'name-data',
                     func: (nd) => {
-                      new El().Div({
+                      new El().A({
                         path: nd,
                         cName: 'name',
                         text: e.user.name,
-                        onclick: () => {
-                          if(o.openInNewTab){
-                            window.open(e.author.url, '_blank');
-                          }else
-                          window.location.assign(e.author.url);
-                        }
+                        url: e.user.url,
+                        rel: ['nofollow', 'noopener', 'noreferrer']
                       });
                       new El().Div({
                         path: nd,
                         cName: 'date',
                         text: getTime(e.date*1000)
                       });
-                      new El().Div({
+                      new El().A({
                         path: nd,
                         cName: 'link',
                         text: '⤴',
-                        onclick: (el) => {
-                          if(o.openInNewTab){
-                            window.open(e.url, '_blank');
-                          }else
-                          window.location.assign(e.url);
-                          // el.preventDefault();
-                          // window.location.assign(e.content.url);
-                        }
+                        url: e.url,
+                        rel: ['nofollow', 'noopener', 'noreferrer']
                       })
                     }
                   });
@@ -203,17 +192,13 @@ class Panel{
                     path: info,
                     cName: 'title-link',
                     func: (tl) => {
-                      new El().Div({
+                      new El().A({
                         path: tl,
                         cName: 'title',
                         text: e.content.title.slice(0, o.maxTitle),
                         title: e.content.title,
-                        onclick: () => {
-                          if(o.openInNewTab){
-                            window.open(e.content.url, '_blank');
-                          }else
-                          window.location.assign(e.content.url);
-                        }
+                        url: e.content.url,
+                        rel: ['nofollow', 'noopener', 'noreferrer']
                       });
                     }
                   });
