@@ -35,15 +35,15 @@ const panelCss = (o) => {
     position: fixed;
     right: calc(-${o.panelWidth}px + 30px);
   }
-}
 
-.list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px 0;
-  padding: 5px;
-  max-height: 100%;
-  overflow: auto;
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+    padding: 5px;
+    max-height: 100%;
+    overflow: auto;
+  }
 }
 
 .dtf-live>.mainHeader {
