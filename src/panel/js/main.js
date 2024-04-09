@@ -306,6 +306,7 @@ class Panel{
         }else
         El.Video({
           path: mask,
+          cName: 'vid',
           url: o.url||`https://leonardo.osnova.io/${o.data.uuid}`,
           poster: o.url||`https://leonardo.osnova.io/${o.data.uuid}`,
           autoplay: true,
