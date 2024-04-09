@@ -3,7 +3,7 @@
 // @namespace   https://github.com/TentacleTenticals
 // @match       https://dtf.ru/*
 // @grant       none
-// @version     1.0.4
+// @version     1.0.5
 // @author      TentacleTenticals
 // @description Новая LivePanel комментариев
 // @homepage    https://github.com/TentacleTenticals/DTF-LivePanel
@@ -11,14 +11,52 @@
 // @downloadURL https://github.com/TentacleTenticals/DTF-LivePanel/raw/main/main.user.js
 //
 // Base
-// @require     https://github.com/TentacleTenticals/dtf-libs-2.0/raw/main/classes/cls.js
+// @require     https://github.com/DTF-scripts/libs/raw/main/src/classes/m.js
 //
-// @require     https://github.com/TentacleTenticals/DTF-LivePanel-2.0/raw/main/src/panel/js/main.js
-// @require     https://github.com/TentacleTenticals/DTF-LivePanel-2.0/raw/main/src/panel/css/main.js
+// @require     https://github.com/TentacleTenticals/DTF-LivePanel/raw/main/src/panel/js/main.js
+// @require     https://github.com/TentacleTenticals/DTF-LivePanel/raw/main/src/panel/css/main.js
 // ==/UserScript==
 
 (() => {
   let livePanel = true;
+  cfg = {
+    theme: 'dark',
+    panel: {
+      scroll: 4,
+      autoUpdate: false,
+      updateTimer: 10000,
+      size: {
+        width: 320
+      }
+    },
+    comments: {
+      title: {
+        size: 12,
+        length: 80
+      },
+      text: {
+        size: 12,
+        length: 150
+      },
+      lcHeader: {
+        noRemote: true,
+        replay: true,
+        avatar : {
+          show: true,
+          size: 30
+        }
+      },
+      attachment: {
+        show: true,
+        size: 25,
+        noRemote: true,
+        replay: true
+      },
+      links: {
+        openInNewTab: false
+      }
+    }
+  };
 
   // new El().Css('DTF-SuperFeeds', css(cfg));
 
@@ -31,54 +69,36 @@
         console.log('[DTF LivePanel] Vanil mode');
         vanilDtf.remove();
 
-        new El().Css('DTF-livePanel', panelCss(
-          {
-            panelWidth: 270,
-            avatarSize: 30,
-            attachmentSize: 25,
-            titleSize: 12,
-            textSize: 12,
-            scroll: 4,
-            updateTimer: 10000
-          }
-        ));
+        El.Css('DTF-livePanel', panelCss(cfg));
 
         new Panel().run({
           mPath: document.querySelector(`body>.main.layout`),
-          openInNewTab: false,
-          autoUpdate: false,
-          updateTimer: 10000,
-          showAttachments: true,
-          showAvatars: true,
-          maxText: 150,
-          maxTitle: 80
+          cfg: cfg,
+          openInNewTab: cfg.comments.links.openInNewTab,
+          autoUpdate: cfg.panel.autoUpdate,
+          updateTimer: cfg.panel.updateTimer,
+          showAttachments: cfg.comments.attachment.show,
+          showAvatars: cfg.comments.lcHeader.avatar.show,
+          maxText: cfg.comments.text.length,
+          maxTitle: cfg.comments.title.length
         });
         livePanel = false;
       }else{
         console.log('[DTF LivePanel] Redesign mode');
         if(redesignDtf) redesignDtf.remove();
 
-        new El().Css('DTF-livePanel', panelCss(
-          {
-            panelWidth: 320,
-            avatarSize: 30,
-            attachmentSize: 25,
-            titleSize: 12,
-            textSize: 12,
-            scroll: 4,
-            updateTimer: 10000
-          }
-        ));
+        El.Css('DTF-livePanel', panelCss(cfg));
 
         new Panel().run({
           mPath: document.querySelector(`#app>.layout>.aside--right`),
-          openInNewTab: false,
-          autoUpdate: false,
-          updateTimer: 10000,
-          showAttachments: true,
-          showAvatars: true,
-          maxText: 150,
-          maxTitle: 80
+          cfg: cfg,
+          openInNewTab: cfg.comments.links.openInNewTab,
+          autoUpdate: cfg.panel.autoUpdate,
+          updateTimer: cfg.panel.updateTimer,
+          showAttachments: cfg.comments.attachment.show,
+          showAvatars: cfg.comments.lcHeader.avatar.show,
+          maxText: cfg.comments.text.length,
+          maxTitle: cfg.comments.title.length
         });
         livePanel = false;
       }
