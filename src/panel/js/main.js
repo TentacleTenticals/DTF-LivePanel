@@ -3,7 +3,7 @@ class Panel{
     El.Div({
       path: o.mPath,
       cName: 'dtf-live',
-      attr: ['theme', cfg.theme],
+      attr: ['theme', o.cfg.theme],
       func: (main) => {
         El.Div({
           path: main,
@@ -309,8 +309,8 @@ class Panel{
           url: o.url||`https://leonardo.osnova.io/${o.data.uuid}`,
           poster: o.url||`https://leonardo.osnova.io/${o.data.uuid}`,
           autoplay: true,
-          remote: cfg.comments[o.type].remote,
-          replay: cfg.comments[o.type].replay,
+          remote: o.cfg.comments[o.type].remote,
+          replay: o.cfg.comments[o.type].replay,
           muted: true
         });
       }
