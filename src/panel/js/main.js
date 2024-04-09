@@ -3,7 +3,7 @@ class Panel{
     El.Div({
       path: o.mPath,
       cName: 'dtf-live',
-      attr: ['theme', o.cfg.theme],
+      attr: ['theme', cfg.theme],
       func: (main) => {
         El.Div({
           path: main,
@@ -159,7 +159,7 @@ class Panel{
             path: c,
             cName: 'lcHeader',
             func: (header) => {
-              if(o.showAvatars) this.getAttach({type:'lcHeader', cfg:o.cfg, url:e.user.avatar, path:header});
+              if(o.showAvatars) this.getAttach({type:'lcHeader', url:e.user.avatar, path:header});
               El.Div({
                 path: header,
                 cName: 'info',
@@ -215,7 +215,7 @@ class Panel{
           if(o.showAttachments && e.media.length > 0){
             e.media.forEach(media => {
               // console.log('MEDIA', media);
-              if(media.data) this.getAttach({type:'attachment', cfg:o.cfg, data:media.data, path:c});
+              if(media.data) this.getAttach({type:'attachment', data:media.data, path:c});
             })
           }
         }
@@ -309,8 +309,8 @@ class Panel{
           url: o.url||`https://leonardo.osnova.io/${o.data.uuid}`,
           poster: o.url||`https://leonardo.osnova.io/${o.data.uuid}`,
           autoplay: true,
-          remote: o.cfg.comments[o.type].remote,
-          replay: o.cfg.comments[o.type].replay,
+          remote: cfg.comments[o.type].remote,
+          replay: cfg.comments[o.type].replay,
           muted: true
         });
       }
