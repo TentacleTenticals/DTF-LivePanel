@@ -4,19 +4,45 @@ const panelCss = (o) => {
 @import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
 
-.scrbar::-webkit-scrollbar-thumb {
-  background-color: rgb(189 164 164);
+.dtf-live[theme='dark'] {
+  --main-bck-c: rgb(0, 0, 0);
+  --main-c: rgb(255, 255, 255);
+
+  --sec-c: rgb(195 173 191);
+  --thi-c: rgb(199 199 199);
+
+  --comment-title-w: 400;
+  --comment-font-w: 400;
 }
-.scrbar::-webkit-scrollbar-corner {
-  background-color: unset;
+.dtf-live[theme='light'] {
+  --main-bck-c: rgb(255, 255, 255);
+  --main-c: rgb(0, 0, 0);
+  --main-sh-c: rgb(0, 0, 0);
+
+  --sec-c: rgb(60, 60, 60);
+  --thi-c: rgb(19 99 199);
+
+  --comment-title-w: 600;
+  --comment-font-w: 600;
 }
-.scrbar::-webkit-scrollbar {
-  width: ${o.scroll}px;
-  height: ${o.scroll}px;
-}
+
 .scrbar {
   scrollbar-width: thin;
-  scrollbar-color: rgb(189 164 164) rgb(0, 0, 0);
+  scrollbar-color: rgb(189 164 164) var(--main-bck-c);
+
+  &::-webkit-scrollbar {
+    width: ${o.panel.scroll}px;
+    height: ${o.panel.scroll}px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: rgb(89 164 164);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(189 164 164);
+  }
+  &::-webkit-scrollbar-corner {
+    background-color: unset;
+  }
 }
 
 .dtf-live {
@@ -25,15 +51,16 @@ const panelCss = (o) => {
   gap: 5px 0;
   position: sticky;
   top: 60px;
-  min-width: ${o.panelWidth}px;
-  width: ${o.panelWidth}px;
+  min-width: ${o.panel.size.width}px;
+  width: ${o.panel.size.width}px;
   height: calc(100vh - 60px);
-  background-color: rgb(0,0,0);
+  background-color: var(--main-bck-c);
   z-index: 10;
+  box-shadow: 0 0 3px 1px var(--main-sh-c);
 
   &.hidden {
     position: fixed;
-    right: calc(-${o.panelWidth}px + 30px);
+    right: calc(-${o.panel.size.width}px + 30px);
   }
 
   .list {
@@ -52,7 +79,7 @@ const panelCss = (o) => {
   justify-content: space-between;
   gap: 0 5px;
   padding: 5px;
-  color: rgb(255 255 255);
+  color: var(--main-c);
 
   .btn {
     display: flex;
@@ -120,10 +147,10 @@ const panelCss = (o) => {
 
     .progress {
       .animation {
-        animation: ${o.updateTimer / 1000}s infinite linear progress;
+        animation: ${o.panel.updateTimer / 1000}s infinite linear progress;
       }
       .text {
-        animation: ${o.updateTimer / 1000}s infinite linear progressTimer;
+        animation: ${o.panel.updateTimer / 1000}s infinite linear progressTimer;
       }
     }
   }
@@ -142,13 +169,14 @@ const panelCss = (o) => {
 .liveComment>.lcHeader {
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
   gap: 2px 5px;
 
   .info {
     display: flex;
     flex-direction: column;
     gap: 2px 5px;
-    max-width: calc(100% - ${o.avatarSize+5}px);
+    max-width: calc(100% - ${o.comments.lcHeader.avatar.size+5}px);
   }
 
   .name-data {
@@ -160,7 +188,8 @@ const panelCss = (o) => {
   .name {
     font-size: 12px;
     font-family: 'Exo 2', sans-serif;
-    color: rgb(255 255 255);
+    color: var(--main-c);
+    text-decoration: none;
   
     &:hover {
       opacity: 0.8;
@@ -170,7 +199,7 @@ const panelCss = (o) => {
   .date {
     font-size: 12px;
     font-family: 'Exo 2', sans-serif;
-    color: rgb(195 173 191);
+    color: var(--sec-c);
   }
 
   .title-link {
@@ -180,10 +209,12 @@ const panelCss = (o) => {
   }
 
   .title {
-    font-size: ${o.titleSize}px;
+    font-size: ${o.comments.title.size}px;
     font-family: 'Exo 2', sans-serif;
     line-height: normal;
-    color: rgb(199 199 199);
+    font-weight: var(--comment-title-w);
+    color: var(--thi-c);
+    text-decoration: none;
   
     &:hover {
       opacity: 0.8;
@@ -193,7 +224,8 @@ const panelCss = (o) => {
   .link {
     padding: 0 3px 0 3px;
     font-size: 12px;
-    color: rgb(255 255 255);
+    color: var(--main-c);
+    text-decoration: none;
   
     &:hover {
       opacity: 0.8;
@@ -204,12 +236,14 @@ const panelCss = (o) => {
 .liveComment {
   display: flex;
   flex-direction: column;
-  gap: 0px 0;
+  gap: 2px 0;
   word-break: break-word;
   
   >.mask.attachment {
     display: flex;
-    width: ${o.attachmentSize}%;
+    min-width: 0;
+    min-height: 0;
+    width: ${o.comments.attachment.size}%;
     aspect-ratio: 1/1;
     padding: 4px;
     overflow: hidden;
@@ -225,10 +259,8 @@ const panelCss = (o) => {
 }
 .liveComment>.lcHeader .mask {
   display: flex;
-  min-width: 0;
-  min-height: 0;
-  width: ${o.avatarSize}px;
-  height: ${o.avatarSize}px;
+  width: ${o.comments.lcHeader.avatar.size}px;
+  aspect-ratio: 1/1;
   padding: 2px;
   overflow: hidden;
   border-radius: 50%;
@@ -242,9 +274,9 @@ const panelCss = (o) => {
 }
 
 .liveComment>.text {
-  color: rgb(255,255,255);
-  font-size: ${o.textSize}px;
-  font-weight: 400;
+  color: var(--main-c);
+  font-size: ${o.comments.text.size}px;
+  font-weight: var(--comment-font-w);
   font-family: 'Manrope', sans-serif;
   font-family: 'Noto Sans JP', sans-serif;
   line-height: normal;
