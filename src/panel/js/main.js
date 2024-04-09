@@ -159,7 +159,7 @@ class Panel{
             path: c,
             cName: 'lcHeader',
             func: (header) => {
-              if(o.showAvatars) this.getAttach({type:'lcHeader', url:e.user.avatar, path:header});
+              if(o.showAvatars) this.getAttach({type:'lcHeader', cfg:o.cfg, url:e.user.avatar, path:header});
               El.Div({
                 path: header,
                 cName: 'info',
@@ -215,7 +215,7 @@ class Panel{
           if(o.showAttachments && e.media.length > 0){
             e.media.forEach(media => {
               // console.log('MEDIA', media);
-              if(media.data) this.getAttach({type:'attachment', data:media.data, path:c});
+              if(media.data) this.getAttach({type:'attachment', cfg:o.cfg, data:media.data, path:c});
             })
           }
         }
