@@ -1,18 +1,19 @@
 class Panel{
   run(o){
-    new El().Div({
+    El.Div({
       path: o.mPath,
       cName: 'dtf-live',
+      attr: ['theme', cfg.theme],
       func: (main) => {
-        new El().Div({
+        El.Div({
           path: main,
           cName: 'mainHeader',
           func: (header) => {
-            new El().Div({
+            El.Div({
               path: header,
               cName: 'btnPanel',
               func: (btnPanel) => {
-                new El().Div({
+                El.Div({
                   path: btnPanel,
                   cName: 'title',
                   text: 'DTF Live',
@@ -20,7 +21,7 @@ class Panel{
                     main.classList.toggle('hidden');
                   }
                 });
-                new El().Button({
+                El.Button({
                   path: btnPanel,
                   cName: 'btn rec',
                   onclick: (e) => {
@@ -28,7 +29,7 @@ class Panel{
                     this.setAutoupdate({click:true, el:header, ...o});
                   }
                 });
-                new El().Button({
+                El.Button({
                   path: btnPanel,
                   cName: 'btn update',
                   text: '🔄\uFE0E',
@@ -38,15 +39,15 @@ class Panel{
                 });
               }
             });
-            new El().Div({
+            El.Div({
               path: header,
               cName: 'progress',
               func: (progress) => {
-                new El().Div({
+                El.Div({
                   path: progress,
                   cName: 'animation'
                 });
-                new El().Div({
+                El.Div({
                   path: progress,
                   cName: 'text'
                 });
@@ -55,7 +56,7 @@ class Panel{
           }
         });
 
-        new El().Div({
+        El.Div({
           path: main,
           id: 'dtf-liveList',
           cName: 'list scrbar',
@@ -108,7 +109,7 @@ class Panel{
           // o.el.setAttribute('timer', t);
           this.updateComments(o);
           console.log('[LiveList] Autoupdate runned!', t);
-        }, o.updateTimer);
+        }, o.panel.updateTimer);
         o.el.setAttribute('timer', t);
       }else
       if(timer !== null){
@@ -126,7 +127,7 @@ class Panel{
           this.updateComments(o);
           // o.el.setAttribute('timer', t);
           console.log('[LiveList] Autoupdate runned by hover!', t);
-        }, o.updateTimer);
+        }, o.panel.updateTimer);
         o.el.setAttribute('timer', t);
       }else
       if(timer !== null){
@@ -149,37 +150,37 @@ class Panel{
       return `${t.getHours() < 10 ? `0${t.getHours()}` : t.getHours()}:${t.getMinutes() < 10 ? `0${t.getMinutes()}` : t.getMinutes()}:${t.getSeconds() < 10 ? `0${t.getSeconds()}` : t.getSeconds()}`
     }
     o.list.forEach(e => {
-      new El().Div({
+      El.Div({
         path: o.path,
         cName: 'liveComment',
         attr: ['cId', e.comment_id],
         func: (c) => {
-          new El().Div({
+          El.Div({
             path: c,
             cName: 'lcHeader',
             func: (header) => {
               if(o.showAvatars) this.getAttach({type:'lcHeader', url:e.user.avatar, path:header});
-              new El().Div({
+              El.Div({
                 path: header,
                 cName: 'info',
                 func: (info) => {
-                  new El().Div({
+                  El.Div({
                     path: info,
                     cName: 'name-data',
                     func: (nd) => {
-                      new El().A({
+                      El.A({
                         path: nd,
                         cName: 'name',
                         text: e.user.name,
                         url: e.user.url,
                         rel: ['nofollow', 'noopener', 'noreferrer']
                       });
-                      new El().Div({
+                      El.Div({
                         path: nd,
                         cName: 'date',
                         text: getTime(e.date*1000)
                       });
-                      new El().A({
+                      El.A({
                         path: nd,
                         cName: 'link',
                         text: '⤴',
@@ -188,11 +189,11 @@ class Panel{
                       })
                     }
                   });
-                  new El().Div({
+                  El.Div({
                     path: info,
                     cName: 'title-link',
                     func: (tl) => {
-                      new El().A({
+                      El.A({
                         path: tl,
                         cName: 'title',
                         text: e.content.title.slice(0, o.maxTitle),
@@ -206,7 +207,7 @@ class Panel{
               });
             }
           });
-          new El().Div({
+          El.Div({
             path: c,
             cName: 'text',
             text: e.text.slice(0, o.maxText)
@@ -293,21 +294,23 @@ class Panel{
     }
   }
   getAttach(o){
-    new El().Div({
+    El.Div({
       path: o.path,
       cName: `mask ${o.type}`,
       func: (mask) => {
         if(o.data && o.data.type && o.data.type.match(/jpg|jpeg|png/)){
-          new El().Image({
+          El.Image({
             path: mask,
             url: o.url||`https://leonardo.osnova.io/${o.data.uuid}`
           });
         }else
-        new El().Video({
+        El.Video({
           path: mask,
           url: o.url||`https://leonardo.osnova.io/${o.data.uuid}`,
           poster: o.url||`https://leonardo.osnova.io/${o.data.uuid}`,
           autoplay: true,
+          remote: cfg.comments[o.type].remote,
+          replay: cfg.comments[o.type].replay,
           muted: true
         });
       }
